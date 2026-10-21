@@ -40,9 +40,10 @@ const buildNavGroups = (navigation: SiteSettings["navigation"]): NavGroup[] => [
     icon: "stethoscope",
     links: [
       { label: "All services", to: "/services" },
-      { label: "Emergency care", to: "/services/infectious-disease-holding-centre" },
-      { label: "Ultrasound & imaging", to: "/services/ultrasound" },
-      { label: "Women's & family care", to: "/services/maternity" },
+      { label: "Emergency care", to: "/services/emergency-care" },
+      { label: "Eye care & vision", to: "/services/eye-care" },
+      { label: "Women's & family", to: "/services/womens-family" },
+      { label: "Surgery & diagnostics", to: "/services/surgery-diagnostics" },
     ],
   },
   {

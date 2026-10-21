@@ -27,7 +27,7 @@ const INSIGHT_IMAGES = ["/images/news-1.jpg", "/images/news-2.jpg"];
 const SHORTCUTS: { icon: IconName; title: string; body: string; to: string }[] = [
   { icon: "users", title: "Patient resources", body: "Answers before you visit.", to: "/patients" },
   { icon: "briefcase-medical", title: "Health plans", body: "Family and corporate cover.", to: "/plans" },
-  { icon: "shield", title: "NHIS services", body: "Accreditation reported in 2025.", to: "/services/nhis" },
+  { icon: "shield", title: "NHIS services", body: "Quality care through your health plan.", to: "/services/nhis" },
   { icon: "search", title: "Find a service", body: "Browse care and facilities.", to: "/services" },
   { icon: "video", title: "TeleHealth", body: "Ask about virtual consultations.", to: "/appointments" },
 ];
@@ -134,7 +134,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Our services"
             title="Care close to home, in Ugbokolo."
-            body="Services and facilities recorded in the hospital's supplied profile. Please confirm current availability with LMH."
+            body="Specialized healthcare services and facilities designed to provide comprehensive medical support for you and your family."
             action={
               <div className="slider-controls">
                 <button type="button" aria-label="Previous services" onClick={() => moveServices(-1)}>
