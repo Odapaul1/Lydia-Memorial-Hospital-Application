@@ -1,15 +1,16 @@
 import mysql from "mysql2/promise";
+import { config } from "../config";
 
-const databaseUrl = process.env.DATABASE_URL;
-if (!databaseUrl) {
-  throw new Error("DATABASE_URL is not configured for the managed application database.");
-}
-
-const connectionUrl = new URL(databaseUrl);
+const connectionUrl = new URL(config.databaseUrl);
 const databaseName = decodeURIComponent(connectionUrl.pathname.replace(/^\/+/, ""));
 if (!connectionUrl.hostname || !connectionUrl.username || !databaseName) {
-  throw new Error("The configured managed-database URL is incomplete.");
+  throw new Error("The configured DATABASE_URL is incomplete.");
 }
+
+const ssl =
+  config.databaseSsl === "disable"
+    ? undefined
+    : { rejectUnauthorized: config.databaseSsl === "verify" };
 
 export const pool = mysql.createPool({
   host: connectionUrl.hostname,
@@ -17,7 +18,7 @@ export const pool = mysql.createPool({
   user: decodeURIComponent(connectionUrl.username),
   password: decodeURIComponent(connectionUrl.password),
   database: databaseName,
-  ssl: { rejectUnauthorized: true },
+  ssl,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,

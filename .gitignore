@@ -4,4 +4,10 @@ dist/
 .env
 .env.*
 !.env.example
+.media/
 .DS_Store
+
+# Local-only reference material and environment probes.
+reference.mp4
+t.txt
+v.txt

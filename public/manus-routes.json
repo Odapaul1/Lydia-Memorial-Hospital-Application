@@ -1,1 +1,22 @@
-{"routes":[{"path":"/","title":"Lydia Memorial Hospital | Gifted Hands"}]}
+{
+  "routes": [
+    { "path": "/", "title": "Lydia Memorial Hospital | Gifted Hands" },
+    { "path": "/about", "title": "About Lydia Memorial Hospital" },
+    { "path": "/about/vision-mission", "title": "Vision & Mission | Lydia Memorial Hospital" },
+    { "path": "/about/our-story", "title": "Our Story | Lydia Memorial Hospital" },
+    { "path": "/about/our-founder", "title": "Our Founder | Lydia Memorial Hospital" },
+    { "path": "/services", "title": "Care & Services | Lydia Memorial Hospital" },
+    { "path": "/services/physiotherapy", "title": "Physiotherapy | Lydia Memorial Hospital" },
+    { "path": "/services/ultrasound", "title": "Ultrasound | Lydia Memorial Hospital" },
+    { "path": "/services/laboratory", "title": "Laboratory | Lydia Memorial Hospital" },
+    { "path": "/services/pharmacy", "title": "Pharmacy | Lydia Memorial Hospital" },
+    { "path": "/services/maternity", "title": "Maternity | Lydia Memorial Hospital" },
+    { "path": "/services/community-outreaches", "title": "Community Outreaches | Lydia Memorial Hospital" },
+    { "path": "/services/nhis", "title": "NHIS Services | Lydia Memorial Hospital" },
+    { "path": "/services/immunisation", "title": "Immunisation Services | Lydia Memorial Hospital" },
+    { "path": "/services/art-unit", "title": "ART Unit | Lydia Memorial Hospital" },
+    { "path": "/services/infectious-disease-holding-centre", "title": "Infectious-Disease Holding Centre | Lydia Memorial Hospital" },
+    { "path": "/faqs", "title": "Visitor FAQs | Lydia Memorial Hospital" },
+    { "path": "/contact", "title": "Contact & Location | Lydia Memorial Hospital" }
+  ]
+}

@@ -36,9 +36,26 @@ const mapPage = (row: PageRow): CmsPage => ({
   updatedAt: row.updated_at,
 });
 
+/**
+ * Merges stored settings over the defaults. Nested objects are merged key by
+ * key so a settings row written before a new field existed still receives the
+ * default for that field instead of dropping it.
+ */
 const parseSettings = (raw: SiteSettings | string): SiteSettings => {
-  const parsed = typeof raw === "string" ? JSON.parse(raw) as SiteSettings : raw;
-  return { ...defaultSiteSettings, ...parsed };
+  const parsed = typeof raw === "string" ? JSON.parse(raw) as Partial<SiteSettings> : raw;
+  return {
+    ...defaultSiteSettings,
+    ...parsed,
+    branding: { ...defaultSiteSettings.branding, ...parsed.branding },
+    contact: { ...defaultSiteSettings.contact, ...parsed.contact },
+    navigation: { ...defaultSiteSettings.navigation, ...parsed.navigation },
+    home: { ...defaultSiteSettings.home, ...parsed.home },
+    appointment: { ...defaultSiteSettings.appointment, ...parsed.appointment },
+    faqs: parsed.faqs ?? defaultSiteSettings.faqs,
+    doctors: parsed.doctors ?? defaultSiteSettings.doctors,
+    departments: parsed.departments ?? defaultSiteSettings.departments,
+    gallery: parsed.gallery ?? defaultSiteSettings.gallery,
+  };
 };
 
 export async function getSiteSettings(pool: Pool): Promise<SiteSettings> {

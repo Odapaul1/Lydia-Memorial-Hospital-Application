@@ -23,6 +23,48 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface Doctor {
+  id: string;
+  name: string;
+  specialty: string;
+  role: string;
+  imageUrl: string;
+  isAvailable: boolean;
+  slug: string;
+}
+
+export interface Department {
+  id: string;
+  title: string;
+  category: "Medical" | "Clinical" | "Surgical" | "Critical Care" | "Women's Health" | "Family Care" | "Diagnostics";
+  description: string;
+  specialistCount: number;
+  icon: string;
+}
+
+export interface GalleryItem {
+  id: string;
+  type: "photo" | "video";
+  title: string;
+  imageUrl: string;
+  slug: string;
+}
+
+export type MediaStatus = "active" | "retired";
+
+/** An image stored in the media library (object storage) and usable in page content. */
+export interface MediaAsset {
+  id: string;
+  storageKey: string;
+  /** Publicly resolvable URL, derived from the configured media host. */
+  url: string;
+  mimeType: string;
+  byteSize: number;
+  altText: string;
+  status: MediaStatus;
+  createdAt: string;
+}
+
 export interface CmsPage {
   id: string;
   slug: string;
@@ -72,6 +114,10 @@ export interface SiteSettings {
     aboutImageAlt: string;
     aboutCaptionTitle: string;
     aboutCaption: string;
+    galleryHeroImageUrl: string;
+    galleryHeroImageAlt: string;
+    visitImageUrl: string;
+    visitImageAlt: string;
     purposeEyebrow: string;
     purposeTitle: string;
     purposeBody: string;
@@ -99,6 +145,9 @@ export interface SiteSettings {
     sourceDisclosure: string;
   };
   faqs: FaqItem[];
+  doctors: Doctor[];
+  departments: Department[];
+  gallery: GalleryItem[];
   appointment: {
     requestEnabled: boolean;
     privacyStatement: string;
